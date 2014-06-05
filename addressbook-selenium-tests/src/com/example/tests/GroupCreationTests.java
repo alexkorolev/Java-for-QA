@@ -1,6 +1,10 @@
 package com.example.tests;
 
 import org.testng.annotations.Test;
+import org.testng.annotations.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.Test;
 
 public class GroupCreationTests extends TestBase{
   
@@ -26,5 +30,21 @@ public class GroupCreationTests extends TestBase{
     fillGroupCreation(new GroupData("", "", ""));
     submitGroupCreation();
     returnsToGroupsPage();
+    
+    
+  }
+  
+  @Test
+  public void testCreateContact() throws Exception {
+	  	
+	    openMainPage();
+	    // openNewContactPage
+	    openNewContactPage();
+	    // createNewContact
+	    GroupData group = new GroupData("Alex", "Alex", "Moscow city", "Home", "89528007169", "Work", "email@email.ru", "email2@email2.ru", "22", "October", "1900", "group name 1", "Address", "Home");
+		createNewContact(group);
+	    //submitContactCreation
+		submitGroupCreation();
+  
   }
 }

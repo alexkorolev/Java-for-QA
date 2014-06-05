@@ -1,5 +1,6 @@
 package com.example.tests;
 
+
 import static org.junit.Assert.fail;
 
 import java.util.concurrent.TimeUnit;
@@ -10,6 +11,7 @@ import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
@@ -67,6 +69,38 @@ public class TestBase {
 		driver.get(baseUrl + "/addressbookv4.1.4/");
 	}
 
+	protected void openNewContactPage() {
+		driver.findElement(By.linkText("add new")).click();
+	}
+	
+	protected void createNewContact(GroupData group) {
+		driver.findElement(By.name("firstname")).clear();
+	    driver.findElement(By.name("firstname")).sendKeys(group.firstName);
+	    driver.findElement(By.name("lastname")).clear();
+	    driver.findElement(By.name("lastname")).sendKeys(group.lastName);
+	    driver.findElement(By.name("address")).clear();
+	    driver.findElement(By.name("address")).sendKeys(group.address);
+	    driver.findElement(By.name("home")).clear();
+	    driver.findElement(By.name("home")).sendKeys(group.home);
+	    driver.findElement(By.name("mobile")).clear();
+	    driver.findElement(By.name("mobile")).sendKeys(group.mNumber);
+	    driver.findElement(By.name("work")).clear();
+	    driver.findElement(By.name("work")).sendKeys(group.wORK);
+	    driver.findElement(By.name("email")).clear();
+	    driver.findElement(By.name("email")).sendKeys(group.eMail);
+	    driver.findElement(By.name("email2")).clear();
+	    driver.findElement(By.name("email2")).sendKeys(group.eMail2);
+	    new Select(driver.findElement(By.name("bday"))).selectByVisibleText(group.bDay);
+	    new Select(driver.findElement(By.name("bmonth"))).selectByVisibleText(group.bMonth);
+	    driver.findElement(By.name("byear")).clear();
+	    driver.findElement(By.name("byear")).sendKeys(group.bYear);
+	    new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(group.groupName);
+	    driver.findElement(By.name("address2")).clear();
+	    driver.findElement(By.name("address2")).sendKeys(group.adress2);
+	    driver.findElement(By.name("phone2")).clear();
+	    driver.findElement(By.name("phone2")).sendKeys(group.pHONE2);
+	}
+	
 
 	private boolean isElementPresent(By by) {
 	    try {
