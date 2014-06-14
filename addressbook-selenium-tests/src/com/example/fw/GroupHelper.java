@@ -35,7 +35,6 @@ public class GroupHelper extends HelperBase{
 		selectGroupByIndex(index);
 		click(By.name("delete"));
 		
-		
 	}
 
 
@@ -53,5 +52,9 @@ public class GroupHelper extends HelperBase{
 	private void selectGroupByIndex(int index) {
 		click(By.xpath("//form[2]/input[" + index + "]"));
 	}
+	
+
+
+	
 	
 }

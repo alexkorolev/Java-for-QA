@@ -1,8 +1,6 @@
 package com.example.fw;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.Select;
-
 import com.example.tests.GroupData;
 
 
@@ -33,6 +31,28 @@ public ContactHelper(ApplicationManager manager) {
 
 	}
 
+	public void deleteContact() { 
+		selectfirstContact();
+		click(By.xpath("//input[@value='Delete']"));
+		
+	}
 	
+	private void selectfirstContact() {
+		click(By.xpath("//*[@id='maintable']//tr[2]//img[@alt='Edit']"));
+	}
+	
+	public void returnsToHomePage() {
+		click(By.linkText("home page"));
+	}
+	
+	public void initContactModification() {
+		selectfirstContact();
+			
+	}
 
+	public void submitContactModification() {
+		click(By.xpath("//input[@value='Update']"));
+		
+	} 
+	
 }

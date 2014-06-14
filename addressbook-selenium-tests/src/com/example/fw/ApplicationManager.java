@@ -33,6 +33,7 @@ public class ApplicationManager {
 			}
 			return navigatorHelper;
 		}
+		  
 		
 		public GroupHelper getGroupHelper(){
 			if (groupHelper == null) {

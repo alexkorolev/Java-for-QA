@@ -3,7 +3,6 @@ package com.example.tests;
 
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
-import static org.junit.Assert.fail;
 
 import com.example.fw.ApplicationManager;
 
